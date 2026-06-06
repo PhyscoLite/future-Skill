@@ -84,8 +84,8 @@ export default function Courses({ onEnroll }: CoursesProps) {
         <div className="border border-gray-200 rounded-3xl p-6 md:p-10 bg-white shadow-sm">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 [perspective:1000px]">
             {coursesData.map((course, index) => (
-              <div key={index} className="relative group cursor-target h-full">
-                <div className="w-full h-full transition-transform duration-500 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+              <div key={index} className="relative group cursor-target h-full" tabIndex={0} onClick={() => {}}>
+                <div className="w-full h-full transition-transform duration-500 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus:[transform:rotateY(180deg)] group-focus-within:[transform:rotateY(180deg)]">
                   {/* Front */}
                   <div className="relative w-full h-full bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col [backface-visibility:hidden]">
                     <div className="relative w-full pb-[56.25%] overflow-hidden bg-gray-200">
@@ -105,12 +105,12 @@ export default function Courses({ onEnroll }: CoursesProps) {
                   </div>
 
                   {/* Back */}
-                  <div className="absolute inset-0 w-full h-full bg-orange-50 border border-orange-200 rounded-xl overflow-y-auto flex flex-col items-center justify-center p-4 md:p-6 text-center shadow-md [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                    <h3 className="font-bold text-orange-800 text-sm md:text-base mb-2 leading-tight">{course.title}</h3>
-                    <p className="text-gray-700 text-xs md:text-sm leading-relaxed max-w-[90%]">
+                  <div className="absolute inset-0 w-full h-full bg-orange-50 border border-orange-200 rounded-xl overflow-y-auto flex flex-col items-center justify-center p-3 md:p-6 text-center shadow-md [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                    <h3 className="font-bold text-orange-800 text-sm md:text-base mb-1 md:mb-2 leading-tight flex-shrink-0">{course.title}</h3>
+                    <p className="text-gray-700 text-xs md:text-sm leading-relaxed max-w-full md:max-w-[90%] flex-grow flex items-center">
                       {course.description}
                     </p>
-                    <button onClick={() => onEnroll?.('Future Skill India Career Development Program', 399, '₹399')} className="mt-4 border-2 border-orange-500 bg-orange-500 text-white hover:bg-orange-600 transition-colors rounded-lg py-2 px-4 w-full font-semibold text-xs md:text-sm cursor-target focus:outline-none">
+                    <button onClick={() => onEnroll?.('Future Skill India Career Development Program', 399, '₹399')} className="mt-3 md:mt-4 border-2 border-orange-500 bg-orange-500 text-white hover:bg-orange-600 transition-colors rounded-lg py-2 px-3 md:px-4 w-full font-semibold text-xs md:text-sm cursor-target focus:outline-none flex-shrink-0">
                       Join Now
                     </button>
                   </div>
@@ -144,8 +144,8 @@ export default function Courses({ onEnroll }: CoursesProps) {
         <div className="border border-gray-200 rounded-3xl p-6 md:p-10 bg-white shadow-sm">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 [perspective:1000px]">
             {additionalSupportData.map((course, index) => (
-              <div key={index} className="relative group cursor-target h-full">
-                <div className="w-full h-full transition-transform duration-500 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+              <div key={index} className="relative group cursor-target h-full" tabIndex={0} onClick={() => {}}>
+                <div className="w-full h-full transition-transform duration-500 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus:[transform:rotateY(180deg)] group-focus-within:[transform:rotateY(180deg)]">
                   {/* Front */}
                   <div className="relative w-full h-full bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col [backface-visibility:hidden]">
                     <div className="relative w-full pb-[56.25%] overflow-hidden bg-gray-200">
@@ -165,12 +165,12 @@ export default function Courses({ onEnroll }: CoursesProps) {
                   </div>
 
                   {/* Back */}
-                  <div className="absolute inset-0 w-full h-full bg-orange-50 border border-orange-200 rounded-xl overflow-y-auto flex flex-col items-center justify-center p-4 md:p-6 text-center shadow-md [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                    <h3 className="font-bold text-orange-800 text-sm md:text-base mb-2 leading-tight">{course.title}</h3>
-                    <p className="text-gray-700 text-xs md:text-sm leading-relaxed max-w-[90%]">
+                  <div className="absolute inset-0 w-full h-full bg-orange-50 border border-orange-200 rounded-xl overflow-y-auto flex flex-col items-center justify-center p-3 md:p-6 text-center shadow-md [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                    <h3 className="font-bold text-orange-800 text-sm md:text-base mb-1 md:mb-2 leading-tight flex-shrink-0">{course.title}</h3>
+                    <p className="text-gray-700 text-xs md:text-sm leading-relaxed max-w-full md:max-w-[90%] flex-grow flex items-center">
                       {course.description}
                     </p>
-                    <button onClick={() => onEnroll?.('Additional Support - Full Access', 349, '₹349')} className="mt-4 border-2 border-orange-500 bg-orange-500 text-white hover:bg-orange-600 transition-colors rounded-lg py-2 px-4 w-full font-semibold text-xs md:text-sm cursor-target focus:outline-none">
+                    <button onClick={() => onEnroll?.('Additional Support - Full Access', 349, '₹349')} className="mt-3 md:mt-4 border-2 border-orange-500 bg-orange-500 text-white hover:bg-orange-600 transition-colors rounded-lg py-2 px-3 md:px-4 w-full font-semibold text-xs md:text-sm cursor-target focus:outline-none flex-shrink-0">
                       Join Now
                     </button>
                   </div>
@@ -247,8 +247,8 @@ export default function Courses({ onEnroll }: CoursesProps) {
         <div className="border border-gray-200 rounded-3xl p-6 md:p-10 bg-white shadow-sm">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 [perspective:1000px]">
             {upcomingCoursesData.map((course, index) => (
-              <div key={index} className="relative group cursor-target h-full">
-                <div className="w-full h-full transition-transform duration-500 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+              <div key={index} className="relative group cursor-target h-full" tabIndex={0} onClick={() => {}}>
+                <div className="w-full h-full transition-transform duration-500 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus:[transform:rotateY(180deg)] group-focus-within:[transform:rotateY(180deg)]">
                   {/* Front */}
                   <div className="relative w-full h-full bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col [backface-visibility:hidden]">
                     <div className="relative w-full pb-[56.25%] overflow-hidden bg-gray-200">
@@ -268,12 +268,12 @@ export default function Courses({ onEnroll }: CoursesProps) {
                   </div>
 
                   {/* Back */}
-                  <div className="absolute inset-0 w-full h-full bg-gray-50 border border-gray-200 rounded-xl overflow-y-auto flex flex-col items-center justify-center p-4 md:p-6 text-center shadow-md [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                    <h3 className="font-bold text-gray-800 text-sm md:text-base mb-2 leading-tight">{course.title}</h3>
-                    <p className="text-gray-600 text-xs md:text-sm leading-relaxed max-w-[90%]">
+                  <div className="absolute inset-0 w-full h-full bg-gray-50 border border-gray-200 rounded-xl overflow-y-auto flex flex-col items-center justify-center p-3 md:p-6 text-center shadow-md [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                    <h3 className="font-bold text-gray-800 text-sm md:text-base mb-1 md:mb-2 leading-tight flex-shrink-0">{course.title}</h3>
+                    <p className="text-gray-600 text-xs md:text-sm leading-relaxed max-w-full md:max-w-[90%] flex-grow flex items-center">
                       {course.description}
                     </p>
-                    <button className="mt-4 border-2 border-gray-500 bg-gray-500 text-white transition-colors rounded-lg py-2 px-4 w-full font-semibold text-xs md:text-sm cursor-not-allowed">
+                    <button className="mt-3 md:mt-4 border-2 border-gray-500 bg-gray-500 text-white transition-colors rounded-lg py-2 px-3 md:px-4 w-full font-semibold text-xs md:text-sm cursor-not-allowed flex-shrink-0">
                       Coming Soon
                     </button>
                   </div>
