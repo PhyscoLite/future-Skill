@@ -56,15 +56,15 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start text-sm text-blue-200">
                 <Phone className="mt-1 mr-3 text-orange-500" size={16} />
-                +91 9999 123 456
+                +91 7974889250
               </li>
               <li className="flex items-start text-sm text-blue-200">
                 <Mail className="mt-1 mr-3 text-orange-500" size={16} />
-                info@futureskill.in
+                tiwarirohit326@gmail.com
               </li>
               <li className="flex items-start text-sm text-blue-200">
                 <MapPin className="mt-1 mr-3 text-orange-500" size={16} />
-                Lucknow, Uttar Pradesh, India
+                Anand kunj garha, jabalpur, Madhya Pradesh, 482003
               </li>
             </ul>
           </div>

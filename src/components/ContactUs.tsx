@@ -26,7 +26,7 @@ export default function ContactUs() {
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 font-semibold mb-1">Call Us</p>
-                  <p className="font-bold text-gray-900">+91 9999 123 456</p>
+                  <p className="font-bold text-gray-900">+91 7974889250</p>
                 </div>
               </div>
               {/* WhatsApp */}
@@ -36,7 +36,7 @@ export default function ContactUs() {
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 font-semibold mb-1">WhatsApp</p>
-                  <p className="font-bold text-gray-900">+91 9999 123 456</p>
+                  <p className="font-bold text-gray-900">+91 7974889250</p>
                 </div>
               </div>
               {/* Email */}
@@ -46,7 +46,7 @@ export default function ContactUs() {
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 font-semibold mb-1">Email Us</p>
-                  <p className="font-bold text-gray-900 text-sm">info@futureskill.in</p>
+                  <p className="font-bold text-gray-900 text-sm">tiwarirohit326@gmail.com</p>
                 </div>
               </div>
               {/* Office */}
@@ -56,7 +56,7 @@ export default function ContactUs() {
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 font-semibold mb-1">Our Office</p>
-                  <p className="font-bold text-gray-900 text-sm">Lucknow, UP, India</p>
+                  <p className="font-bold text-gray-900 text-sm">Anand kunj garha, jabalpur, Madhya Pradesh, 482003</p>
                 </div>
               </div>
             </div>
