@@ -36,6 +36,11 @@ export default function App() {
         </main>
         <Footer />
         
+        {/* Govind Printer's Label */}
+        <div className="fixed top-[70%] right-0 z-40 transform -translate-y-1/2 bg-red-600 text-white px-2 py-3 rounded-l-md shadow-lg text-xs font-semibold tracking-wider flex items-center justify-center [writing-mode:vertical-rl] rotate-180 cursor-default border-y border-l border-red-700">
+          Govind Printer's
+        </div>
+
         {/* Floating WhatsApp Button */}
         <a href="#" className="fixed bottom-6 right-6 z-40 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 cursor-target overflow-hidden block">
           <GlareHover className="w-full h-full flex items-center justify-center" glareSize={80}>
