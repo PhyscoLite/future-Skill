@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { GraduationCap, Phone, Menu, X } from 'lucide-react';
 import GlareHover from './GlareHover';
 
@@ -8,26 +9,37 @@ interface HeaderProps {
 
 export default function Header({ onEnroll }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const getNavClass = (path: string) => {
+    return location.pathname === path
+      ? "text-orange-500 font-semibold border-b-2 border-orange-500 pb-1 cursor-target"
+      : "text-gray-600 hover:text-blue-800 font-medium transition-colors cursor-target";
+  };
+  const getMobileNavClass = (path: string) => {
+    return location.pathname === path
+      ? "text-orange-500 font-semibold"
+      : "text-gray-600 hover:text-blue-800 font-medium transition-colors";
+  };
 
   return (
     <header className="bg-white sticky top-0 z-50 shadow-sm py-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center relative z-50 bg-white">
         {/* Logo */}
         <div className="flex-shrink-0 flex items-center">
-          <a className="flex items-center gap-2" href="#">
+          <Link className="flex items-center gap-2" to="/">
             <div className="w-10 h-10 bg-blue-800 text-white flex items-center justify-center font-bold text-xl rounded">
               <GraduationCap size={24} />
             </div>
             <span className="font-bold text-2xl text-blue-900 tracking-tight">Future <span className="text-orange-500">Skill</span></span>
-          </a>
+          </Link>
         </div>
         {/* Navigation */}
         <nav className="hidden md:flex space-x-8">
-          <a className="text-orange-500 font-semibold border-b-2 border-orange-500 pb-1 cursor-target" href="#">Home</a>
-          <a className="text-gray-600 hover:text-blue-800 font-medium transition-colors cursor-target" href="#">About Us</a>
-          <a className="text-gray-600 hover:text-blue-800 font-medium transition-colors cursor-target" href="#courses">Course</a>
-          <a className="text-gray-600 hover:text-blue-800 font-medium transition-colors cursor-target" href="#">Job Alerts</a>
-          <a className="text-gray-600 hover:text-blue-800 font-medium transition-colors cursor-target" href="#">Contact Us</a>
+          <Link className={getNavClass('/')} to="/">Home</Link>
+          <Link className={getNavClass('/about')} to="/about">About Us</Link>
+          <a className="text-gray-600 hover:text-blue-800 font-medium transition-colors cursor-target" href="/#courses">Course</a>
+          <Link className={getNavClass('/contact')} to="/contact">Contact Us</Link>
         </nav>
         {/* CTA */}
         <div className="hidden lg:flex items-center space-x-6">
@@ -56,11 +68,10 @@ export default function Header({ onEnroll }: HeaderProps) {
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full flex flex-col space-y-4 px-4 py-6 border-t border-gray-100 z-40">
-          <a className="text-orange-500 font-semibold" href="#" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
-          <a className="text-gray-600 hover:text-blue-800 font-medium transition-colors" href="#" onClick={() => setIsMobileMenuOpen(false)}>About Us</a>
-          <a className="text-gray-600 hover:text-blue-800 font-medium transition-colors" href="#courses" onClick={() => setIsMobileMenuOpen(false)}>Course</a>
-          <a className="text-gray-600 hover:text-blue-800 font-medium transition-colors" href="#" onClick={() => setIsMobileMenuOpen(false)}>Job Alerts</a>
-          <a className="text-gray-600 hover:text-blue-800 font-medium transition-colors" href="#" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</a>
+          <Link className={getMobileNavClass('/')} to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+          <Link className={getMobileNavClass('/about')} to="/about" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
+          <a className="text-gray-600 hover:text-blue-800 font-medium transition-colors" href="/#courses" onClick={() => setIsMobileMenuOpen(false)}>Course</a>
+          <Link className={getMobileNavClass('/contact')} to="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
           
           <div className="flex items-center text-blue-900 font-semibold pt-4 border-t border-gray-100">
             <Phone size={18} className="mr-2" />

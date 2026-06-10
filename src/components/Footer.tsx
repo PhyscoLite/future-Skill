@@ -1,4 +1,5 @@
 import { GraduationCap, Facebook, Instagram, Youtube, Linkedin, Phone, Mail, MapPin, Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -7,12 +8,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 border-b border-blue-800 pb-12">
           {/* Brand Column */}
           <div className="space-y-6">
-            <a className="flex items-center gap-2 bg-white inline-flex p-2 rounded" href="#">
+            <Link className="flex items-center gap-2 bg-white inline-flex p-2 rounded" to="/">
               <div className="w-8 h-8 bg-blue-800 text-white flex items-center justify-center font-bold text-lg rounded">
                 <GraduationCap size={20} />
               </div>
               <span className="font-bold text-xl text-blue-900 tracking-tight">Future <span className="text-orange-500">Skill</span></span>
-            </a>
+            </Link>
             <p className="text-blue-200 text-sm leading-relaxed">Learn Skills, Build Careers, Create Opportunities.<br />Join our daily live program and take the right step towards a better future.</p>
             <div className="flex space-x-4">
               <a className="w-8 h-8 bg-blue-800 hover:bg-orange-500 rounded-full flex items-center justify-center transition-colors" href="#">
@@ -33,11 +34,10 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              <li><a className="text-blue-200 hover:text-white transition-colors text-sm" href="#">Home</a></li>
-              <li><a className="text-blue-200 hover:text-white transition-colors text-sm" href="#">About Us</a></li>
-              <li><a className="text-blue-200 hover:text-white transition-colors text-sm" href="#">Course</a></li>
-              <li><a className="text-blue-200 hover:text-white transition-colors text-sm" href="#">Job Alerts</a></li>
-              <li><a className="text-blue-200 hover:text-white transition-colors text-sm" href="#">Contact Us</a></li>
+              <li><Link className="text-blue-200 hover:text-white transition-colors text-sm" to="/">Home</Link></li>
+              <li><Link className="text-blue-200 hover:text-white transition-colors text-sm" to="/about">About Us</Link></li>
+              <li><a className="text-blue-200 hover:text-white transition-colors text-sm" href="/#courses">Course</a></li>
+              <li><Link className="text-blue-200 hover:text-white transition-colors text-sm" to="/contact">Contact Us</Link></li>
             </ul>
           </div>
           {/* Important Links */}
@@ -47,7 +47,7 @@ export default function Footer() {
               <li><a className="text-blue-200 hover:text-white transition-colors text-sm" href="#">Privacy Policy</a></li>
               <li><a className="text-blue-200 hover:text-white transition-colors text-sm" href="#">Terms &amp; Conditions</a></li>
               <li><a className="text-blue-200 hover:text-white transition-colors text-sm" href="#">Refund Policy</a></li>
-              <li><a className="text-blue-200 hover:text-white transition-colors text-sm" href="#">Disclaimer</a></li>
+              <li><a className="text-blue-200 hover:text-white transition-colors text-sm" href="#">Career</a></li>
             </ul>
           </div>
           {/* Contact Info */}

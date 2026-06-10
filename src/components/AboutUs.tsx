@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import GlareHover from './GlareHover';
 import BlurText from './BlurText';
 
@@ -31,11 +32,11 @@ export default function AboutUs() {
               className="text-gray-600 leading-relaxed mb-4"
             />
             <div className="pt-4">
-              <a className="bg-blue-800 hover:bg-blue-900 text-white rounded-md font-semibold inline-block transition-colors cursor-target overflow-hidden" href="#">
+              <Link className="bg-blue-800 hover:bg-blue-900 text-white rounded-md font-semibold inline-block transition-colors cursor-target overflow-hidden" to="/about">
                 <GlareHover className="px-8 py-3 flex items-center justify-center w-full h-full" glareSize={180}>
                   Read More <ArrowRight className="ml-2" size={18} />
                 </GlareHover>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
