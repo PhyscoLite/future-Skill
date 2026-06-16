@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { MessageCircle } from 'lucide-react';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -10,10 +10,13 @@ import SplashCursor from './components/SplashCursor';
 import HomePage from './pages/HomePage';
 import AboutUsPage from './pages/AboutUsPage';
 import ContactUsPage from './pages/ContactUsPage';
+import AdminPage from './pages/AdminPage';
 
-export default function App() {
+function Shell() {
+  const location = useLocation();
+  const isAdmin = location.pathname.startsWith('/admin');
+
   const [isEnrollmentOpen, setIsEnrollmentOpen] = useState(false);
-
   const [enrollmentDetails, setEnrollmentDetails] = useState({ planName: 'Future Skill India Career Development Program', price: 399, priceText: '₹399' });
 
   const openEnrollment = (planName = 'Future Skill India Career Development Program', price = 399, priceText = '₹399') => {
@@ -22,9 +25,17 @@ export default function App() {
   };
   const closeEnrollment = () => setIsEnrollmentOpen(false);
 
+  // The admin dashboard is a standalone screen — no marketing chrome.
+  if (isAdmin) {
+    return (
+      <Routes>
+        <Route path="/admin" element={<AdminPage />} />
+      </Routes>
+    );
+  }
+
   return (
-    <BrowserRouter>
-      <div className="min-h-screen flex flex-col relative w-full overflow-x-hidden">
+    <div className="min-h-screen flex flex-col relative w-full overflow-x-hidden">
         <SplashCursor COLOR="#f97316" RAINBOW_MODE={false} />
         <Header onEnroll={() => openEnrollment()} />
         <main className="flex-grow w-full">
@@ -50,6 +61,12 @@ export default function App() {
 
         <EnrollmentModal isOpen={isEnrollmentOpen} onClose={closeEnrollment} planDetails={enrollmentDetails} />
       </div>
-    </BrowserRouter>
   );
+}
+
+// App is router-agnostic: the client entry wraps it in <BrowserRouter> and the
+// server/prerender entry wraps it in <StaticRouter>. HelmetProvider is likewise
+// supplied by each entry (the server passes a context to collect head tags).
+export default function App() {
+  return <Shell />;
 }

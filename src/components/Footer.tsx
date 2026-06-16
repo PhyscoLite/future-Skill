@@ -12,7 +12,7 @@ export default function Footer() {
               <div className="w-8 h-8 bg-blue-800 text-white flex items-center justify-center font-bold text-lg rounded">
                 <GraduationCap size={20} />
               </div>
-              <span className="font-bold text-xl text-blue-900 tracking-tight">Future <span className="text-orange-500">Skill</span></span>
+              <span className="font-bold text-xl text-blue-900 tracking-tight">Gyaanpath <span className="text-orange-500">Digital</span></span>
             </Link>
             <p className="text-blue-200 text-sm leading-relaxed">Learn Skills, Build Careers, Create Opportunities.<br />Join our daily live program and take the right step towards a better future.</p>
             <div className="flex space-x-4">
@@ -71,7 +71,7 @@ export default function Footer() {
         </div>
         {/* Copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center text-xs text-blue-300">
-          <p>© 2026 Future Skill. All Rights Reserved.</p>
+          <p>© 2026 Gyaanpath Digital. All Rights Reserved.</p>
           <p className="mt-4 md:mt-0 flex items-center">
             Designed with <Heart className="text-red-500 mx-1" size={12} fill="currentColor" /> for a Better India
           </p>

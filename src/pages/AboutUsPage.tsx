@@ -1,10 +1,16 @@
 import { ArrowRight, Trophy, Users, BookOpen, Target, CheckCircle2 } from 'lucide-react';
 import GlareHover from '../components/GlareHover';
 import BlurText from '../components/BlurText';
+import Seo from '../components/Seo';
 
 export default function AboutUsPage() {
   return (
     <div className="bg-gray-50 flex-grow">
+      <Seo
+        title="About Us"
+        path="/about"
+        description="Learn about Future Skill — our mission to empower individuals to achieve their career goals through quality, accessible skill development and training programs."
+      />
       {/* Hero Section */}
       <section className="bg-blue-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

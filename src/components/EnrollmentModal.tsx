@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { X, CheckCircle } from 'lucide-react';
-import MockPaymentGateway from './MockPaymentGateway';
+import { X, CheckCircle, Loader2, AlertCircle } from 'lucide-react';
 import GlareHover from './GlareHover';
+import { startPayment, type StudentDetails } from '../api/payment';
 
 interface EnrollmentModalProps {
   isOpen: boolean;
@@ -14,23 +14,50 @@ interface EnrollmentModalProps {
 }
 
 export default function EnrollmentModal({ isOpen, onClose, planDetails = { planName: 'Future Skill India Career Development Program', price: 399, priceText: '₹399' } }: EnrollmentModalProps) {
-  const [showPayment, setShowPayment] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
+  const [processing, setProcessing] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setShowPayment(true);
-  };
+    setError(null);
 
-  const handlePaymentSuccess = () => {
-    setShowPayment(false);
-    setPaymentSuccess(true);
-    setTimeout(() => {
-      setPaymentSuccess(false);
-      onClose();
-    }, 3000);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const details: StudentDetails = {
+      course_name: planDetails.planName,
+      amount: planDetails.price,
+      student_name: String(data.get('full_name') || ''),
+      father_name: String(data.get('father_name') || ''),
+      age: Number(data.get('age') || 0),
+      mobile: String(data.get('mobile') || ''),
+      email: String(data.get('email') || ''),
+      qualification: String(data.get('qualification') || ''),
+      address: String(data.get('address') || ''),
+      coordinator_name: String(data.get('coordinator_name') || ''),
+    };
+
+    setProcessing(true);
+    startPayment({
+      details,
+      onSuccess: () => {
+        setProcessing(false);
+        setPaymentSuccess(true);
+        setTimeout(() => {
+          setPaymentSuccess(false);
+          onClose();
+        }, 3500);
+      },
+      onFailure: (message) => {
+        setProcessing(false);
+        setError(message);
+      },
+      onDismiss: () => {
+        setProcessing(false);
+      },
+    });
   };
 
   return (
@@ -45,7 +72,7 @@ export default function EnrollmentModal({ isOpen, onClose, planDetails = { planN
             <X size={20} />
           </button>
         </div>
-        
+
         <div className="p-6 max-h-[70vh] overflow-y-auto custom-scrollbar">
           {paymentSuccess ? (
             <div className="flex flex-col items-center justify-center py-12 text-center">
@@ -55,31 +82,37 @@ export default function EnrollmentModal({ isOpen, onClose, planDetails = { planN
             </div>
           ) : (
           <form id="enrollment-form" className="space-y-6" onSubmit={handleSubmit}>
+            {error && (
+              <div className="flex items-start gap-2 bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 text-sm">
+                <AlertCircle size={18} className="mt-0.5 shrink-0" />
+                <span>{error}</span>
+              </div>
+            )}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                <input type="text" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="Enter full name" required />
+                <input name="full_name" type="text" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="Enter full name" required />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Father's Name *</label>
-                <input type="text" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="Enter father's name" required />
+                <input name="father_name" type="text" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="Enter father's name" required />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Age *</label>
-                <input type="number" min="10" max="100" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="Enter age" required />
+                <input name="age" type="number" min="10" max="100" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="Enter age" required />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Mobile Number *</label>
-                <input type="tel" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="Enter mobile number" required />
+                <input name="mobile" type="tel" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="Enter mobile number" required />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Email ID</label>
-                <input type="email" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="Enter email address" />
+                <input name="email" type="email" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="Enter email address" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Qualification *</label>
                 <div className="relative">
-                  <select className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all appearance-none bg-white" required defaultValue="">
+                  <select name="qualification" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all appearance-none bg-white" required defaultValue="">
                     <option value="" disabled>Select Qualification</option>
                     <option value="10th">10th</option>
                     <option value="12th">12th</option>
@@ -93,15 +126,15 @@ export default function EnrollmentModal({ isOpen, onClose, planDetails = { planN
                 </div>
               </div>
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Address *</label>
-              <textarea rows={2} className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all resize-none" placeholder="Enter full address" required></textarea>
+              <textarea name="address" rows={2} className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all resize-none" placeholder="Enter full address" required></textarea>
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Coordinator Name *</label>
-              <input type="text" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="If not available, fill NA" defaultValue="NA" required />
+              <input name="coordinator_name" type="text" className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="If not available, fill NA" defaultValue="NA" required />
               <p className="text-xs text-gray-500 mt-1">If not available fill NA</p>
             </div>
 
@@ -114,7 +147,7 @@ export default function EnrollmentModal({ isOpen, onClose, planDetails = { planN
                   </div>
                   <div className="ml-3">
                      <span className="block text-sm font-bold text-gray-900">{planDetails.planName}</span>
-                     <span className="block text-xs text-gray-500 mt-0.5">Selected Program</span>
+                     <span className="block text-xs text-gray-500 mt-0.5">Selected Program — {planDetails.priceText}</span>
                   </div>
                 </label>
                 <label className="flex items-start opacity-50 cursor-not-allowed">
@@ -131,23 +164,31 @@ export default function EnrollmentModal({ isOpen, onClose, planDetails = { planN
           </form>
           )}
         </div>
-        
+
         {!paymentSuccess && (
         <div className="p-6 border-t border-gray-100 bg-white sticky bottom-0 z-10">
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             form="enrollment-form"
-            className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl transition-all shadow-lg shadow-orange-200 group block cursor-target overflow-hidden"
+            disabled={processing}
+            className="w-full bg-orange-500 hover:bg-orange-600 disabled:opacity-70 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-all shadow-lg shadow-orange-200 group block cursor-target overflow-hidden"
           >
             <GlareHover className="w-full py-3.5 px-4 flex items-center justify-center" glareSize={400}>
-              <span className="relative z-10">Proceed to Pay {planDetails.priceText}</span>
-              <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              {processing ? (
+                <span className="relative z-10 flex items-center">
+                  <Loader2 size={20} className="mr-2 animate-spin" /> Processing…
+                </span>
+              ) : (
+                <>
+                  <span className="relative z-10">Proceed to Pay {planDetails.priceText}</span>
+                  <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                </>
+              )}
             </GlareHover>
           </button>
         </div>
         )}
       </div>
-      <MockPaymentGateway isOpen={showPayment} amount={planDetails.price} onClose={() => setShowPayment(false)} onSuccess={handlePaymentSuccess} />
     </div>
   );
 }

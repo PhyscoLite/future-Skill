@@ -31,7 +31,7 @@ export default function Header({ onEnroll }: HeaderProps) {
             <div className="w-10 h-10 bg-blue-800 text-white flex items-center justify-center font-bold text-xl rounded">
               <GraduationCap size={24} />
             </div>
-            <span className="font-bold text-2xl text-blue-900 tracking-tight">Future <span className="text-orange-500">Skill</span></span>
+            <span className="font-bold text-2xl text-blue-900 tracking-tight">Gyaanpath <span className="text-orange-500">Digital</span></span>
           </Link>
         </div>
         {/* Navigation */}
