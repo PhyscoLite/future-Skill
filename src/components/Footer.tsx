@@ -9,10 +9,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="space-y-6">
             <Link className="flex items-center gap-2 bg-white inline-flex p-2 rounded" to="/">
-              <div className="w-8 h-8 bg-blue-800 text-white flex items-center justify-center font-bold text-lg rounded">
-                <GraduationCap size={20} />
-              </div>
-              <span className="font-bold text-xl text-blue-900 tracking-tight">Gyaanpath <span className="text-orange-500">Digital</span></span>
+              <img src="https://res.cloudinary.com/dm3scoj2q/image/upload/v1781785543/gyaanpath-logo_j41gsq.png" alt="GyaanPath Digital" className="h-8 w-auto px-2" />
             </Link>
             <p className="text-blue-200 text-sm leading-relaxed">Learn Skills, Build Careers, Create Opportunities.<br />Join our daily live program and take the right step towards a better future.</p>
             <div className="flex space-x-4">
@@ -36,7 +33,6 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><Link className="text-blue-200 hover:text-white transition-colors text-sm" to="/">Home</Link></li>
               <li><Link className="text-blue-200 hover:text-white transition-colors text-sm" to="/about">About Us</Link></li>
-              <li><a className="text-blue-200 hover:text-white transition-colors text-sm" href="/#courses">Course</a></li>
               <li><Link className="text-blue-200 hover:text-white transition-colors text-sm" to="/contact">Contact Us</Link></li>
             </ul>
           </div>
@@ -44,10 +40,11 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-6">Important Links</h4>
             <ul className="space-y-3">
-              <li><a className="text-blue-200 hover:text-white transition-colors text-sm" href="#">Privacy Policy</a></li>
-              <li><a className="text-blue-200 hover:text-white transition-colors text-sm" href="#">Terms &amp; Conditions</a></li>
-              <li><a className="text-blue-200 hover:text-white transition-colors text-sm" href="#">Refund Policy</a></li>
-              <li><a className="text-blue-200 hover:text-white transition-colors text-sm" href="#">Career</a></li>
+              <li><Link className="text-blue-200 hover:text-white transition-colors text-sm" to="/privacy-policy">Privacy Policy</Link></li>
+              <li><Link className="text-blue-200 hover:text-white transition-colors text-sm" to="/terms-conditions">Terms & Conditions</Link></li>
+              <li><Link className="text-blue-200 hover:text-white transition-colors text-sm" to="/refund-policy">Refund Policy</Link></li>
+              <li><Link className="text-blue-200 hover:text-white transition-colors text-sm" to="/career">Career</Link></li>
+              <li><a className="text-blue-200 hover:text-white transition-colors text-sm" href="/admin">Admin</a></li>
             </ul>
           </div>
           {/* Contact Info */}
@@ -55,12 +52,12 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-6">Contact Info</h4>
             <ul className="space-y-4">
               <li className="flex items-start text-sm text-blue-200">
-                <Phone className="mt-1 mr-3 text-orange-500" size={16} />
-                +91 7974889250
+                <Phone className="mt-1 mr-3 text-orange-500 flex-shrink-0" size={16} />
+                <a href="tel:+917974889250" className="hover:text-white transition-colors">+91 7974889250</a>
               </li>
               <li className="flex items-start text-sm text-blue-200">
-                <Mail className="mt-1 mr-3 text-orange-500" size={16} />
-                tiwarirohit326@gmail.com
+                <Mail className="mt-1 mr-3 text-orange-500 flex-shrink-0" size={16} />
+                <a href="mailto:info@gyaanpathdigital.in" className="hover:text-white transition-colors break-all">info@gyaanpathdigital.in</a>
               </li>
               <li className="flex items-start text-sm text-blue-200">
                 <MapPin className="mt-1 mr-3 text-orange-500" size={16} />
@@ -71,7 +68,7 @@ export default function Footer() {
         </div>
         {/* Copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center text-xs text-blue-300">
-          <p>© 2026 Gyaanpath Digital. All Rights Reserved.</p>
+          <p>© 2026 GyaanPath Digital. All Rights Reserved.</p>
           <p className="mt-4 md:mt-0 flex items-center">
             Designed with <Heart className="text-red-500 mx-1" size={12} fill="currentColor" /> for a Better India
           </p>

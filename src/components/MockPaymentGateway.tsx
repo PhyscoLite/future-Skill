@@ -17,11 +17,11 @@ export default function MockPaymentGateway({ isOpen, amount, onClose, onSuccess 
         {/* Header */}
         <div className="bg-[#0B1221] text-white p-5 flex justify-between items-center rounded-t-xl">
           <div className="flex items-center gap-4">
-             <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
-                 <span className="font-bold text-lg text-white">FS</span>
+             <div className="w-10 h-10 bg-white flex items-center justify-center rounded-full border border-white/20 p-1">
+                <img src="https://res.cloudinary.com/dm3scoj2q/image/upload/v1781785543/gyaanpath-logo_j41gsq.png" alt="Logo" className="w-full h-auto object-contain" />
              </div>
              <div>
-                <h3 className="font-semibold text-sm">Future Skill Technologies</h3>
+                <h3 className="font-semibold text-sm">GyaanPath Digital Technologies</h3>
                 <p className="text-gray-400 text-xs flex items-center mt-0.5">
                    <ShieldCheck size={12} className="mr-1 text-green-400" /> Secure Payment
                 </p>

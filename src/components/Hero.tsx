@@ -47,7 +47,7 @@ export default function Hero({ onEnroll }: { onEnroll?: () => void }) {
             animate={{ y: [-10, 15, -10] }}
             transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
           >
-            <img alt="Student learning with Future Skill" className="w-full h-auto object-contain rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJSmXGZeC6atEzTaWtno3M0xpbORjKXY9l-9lyOaPkdpRbPiinyohu0siRpA52Vg3tZKEtRixqjVHnoZm4Vq82yBqzk9yeLe9E-_ri64WSzgg3adYEXBobxMAfY_ajTebrEjWANMFFIbdi-GrpfK844xXM0wDP9Mx40W2e8GZvfkF7chNpcwd4aqZnuwUUExuYDJef4eAkHSf-g_tY6wOUo0war61hAv3YDEu96Hskmqh_ezbNh2vd4Culm6LwVXQJ_JoNEQ4RkwbX" />
+            <img alt="Student learning with GyaanPath Digital" className="w-full h-auto object-contain rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJSmXGZeC6atEzTaWtno3M0xpbORjKXY9l-9lyOaPkdpRbPiinyohu0siRpA52Vg3tZKEtRixqjVHnoZm4Vq82yBqzk9yeLe9E-_ri64WSzgg3adYEXBobxMAfY_ajTebrEjWANMFFIbdi-GrpfK844xXM0wDP9Mx40W2e8GZvfkF7chNpcwd4aqZnuwUUExuYDJef4eAkHSf-g_tY6wOUo0war61hAv3YDEu96Hskmqh_ezbNh2vd4Culm6LwVXQJ_JoNEQ4RkwbX" />
           </motion.div>
         </div>
       </div>

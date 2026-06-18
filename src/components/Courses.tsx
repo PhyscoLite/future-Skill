@@ -110,7 +110,7 @@ export default function Courses({ onEnroll }: CoursesProps) {
                     <p className="text-gray-700 text-[10px] md:text-sm leading-snug md:leading-relaxed max-w-full md:max-w-[90%] flex-grow">
                       {course.description}
                     </p>
-                    <button onClick={() => onEnroll?.('Future Skill India Career Development Program', 399, '₹399')} className="mt-2 md:mt-4 border-2 border-orange-500 bg-orange-500 text-white hover:bg-orange-600 transition-colors rounded-lg py-1 md:py-2 px-2 md:px-4 w-full font-semibold text-[10px] md:text-sm cursor-target focus:outline-none flex-shrink-0">
+                    <button onClick={() => onEnroll?.('GyaanPath Digital Career Development Program', 399, '₹399')} className="mt-2 md:mt-4 border-2 border-orange-500 bg-orange-500 text-white hover:bg-orange-600 transition-colors rounded-lg py-1 md:py-2 px-2 md:px-4 w-full font-semibold text-[10px] md:text-sm cursor-target focus:outline-none flex-shrink-0">
                       Join Now
                     </button>
                   </div>
@@ -126,7 +126,7 @@ export default function Courses({ onEnroll }: CoursesProps) {
               delay={200}
               className="text-gray-700 text-lg md:text-xl font-medium mb-8 leading-relaxed"
             />
-            <button onClick={() => onEnroll?.('Future Skill India Career Development Program', 399, '₹399')} className="block w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold text-lg transition-colors cursor-target overflow-hidden shadow-lg shadow-orange-200">
+            <button onClick={() => onEnroll?.('GyaanPath Digital Career Development Program', 399, '₹399')} className="block w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold text-lg transition-colors cursor-target overflow-hidden shadow-lg shadow-orange-200">
               <GlareHover className="px-12 py-4 flex items-center justify-center w-full h-full" glareSize={250}>
                 Get All Access for ₹399
               </GlareHover>
@@ -170,7 +170,7 @@ export default function Courses({ onEnroll }: CoursesProps) {
                     <p className="text-gray-700 text-[10px] md:text-sm leading-snug md:leading-relaxed max-w-full md:max-w-[90%] flex-grow">
                       {course.description}
                     </p>
-                    <button onClick={() => onEnroll?.('Additional Support - Full Access', 349, '₹349')} className="mt-2 md:mt-4 border-2 border-orange-500 bg-orange-500 text-white hover:bg-orange-600 transition-colors rounded-lg py-1 md:py-2 px-2 md:px-4 w-full font-semibold text-[10px] md:text-sm cursor-target focus:outline-none flex-shrink-0">
+                    <button onClick={() => onEnroll?.('Additional Support - Full Access', 399, '₹399')} className="mt-2 md:mt-4 border-2 border-orange-500 bg-orange-500 text-white hover:bg-orange-600 transition-colors rounded-lg py-1 md:py-2 px-2 md:px-4 w-full font-semibold text-[10px] md:text-sm cursor-target focus:outline-none flex-shrink-0">
                       Join Now
                     </button>
                   </div>
@@ -186,9 +186,9 @@ export default function Courses({ onEnroll }: CoursesProps) {
               delay={200}
               className="text-gray-700 text-lg md:text-xl font-medium mb-8 leading-relaxed"
             />
-            <button onClick={() => onEnroll?.('Additional Support - Full Access', 349, '₹349')} className="block w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold text-lg transition-colors cursor-target overflow-hidden shadow-lg shadow-orange-200">
+            <button onClick={() => onEnroll?.('Additional Support - Full Access', 399, '₹399')} className="block w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold text-lg transition-colors cursor-target overflow-hidden shadow-lg shadow-orange-200">
               <GlareHover className="px-12 py-4 flex items-center justify-center w-full h-full" glareSize={250}>
-                Buy for ₹349 Only
+                Buy for ₹399 Only
               </GlareHover>
             </button>
           </div>

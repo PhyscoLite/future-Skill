@@ -21,7 +21,7 @@ export default function AboutUs() {
             />
             <BlurText 
               as="p"
-              text="Future Skill is a leading skill development and career guidance platform committed to creating brighter futures for students across India."
+              text="GyaanPath Digital is a leading skill development and career guidance platform committed to creating brighter futures for students across India."
               delay={200}
               className="text-gray-600 leading-relaxed mt-2.5 mb-2.5"
             />

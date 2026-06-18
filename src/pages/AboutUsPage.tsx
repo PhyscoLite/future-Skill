@@ -1,22 +1,21 @@
+import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Trophy, Users, BookOpen, Target, CheckCircle2 } from 'lucide-react';
 import GlareHover from '../components/GlareHover';
 import BlurText from '../components/BlurText';
-import Seo from '../components/Seo';
 
 export default function AboutUsPage() {
   return (
     <div className="bg-gray-50 flex-grow">
-      <Seo
-        title="About Us"
-        path="/about"
-        description="Learn about Future Skill — our mission to empower individuals to achieve their career goals through quality, accessible skill development and training programs."
-      />
+      <Helmet>
+        <title>About Us | GyaanPath Digital</title>
+        <meta name="description" content="Learn about our mission at GyaanPath Digital to bridge the gap between education and employment in India with top-tier practical skill development." />
+      </Helmet>
       {/* Hero Section */}
       <section className="bg-blue-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <BlurText 
             as="h1"
-            text="About Future Skill" 
+            text="About GyaanPath Digital" 
             delay={100} 
             className="text-4xl md:text-5xl font-extrabold leading-tight mb-6" 
           />
@@ -37,7 +36,7 @@ export default function AboutUsPage() {
               <span className="text-orange-500 font-bold text-sm tracking-widest uppercase">Our Mission</span>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Bridging the Gap Between Education and Employment.</h2>
               <p className="text-gray-600 leading-relaxed">
-                At Future Skill, our mission is to empower learners across India with the practical skills needed to thrive in today's competitive job market. We believe that quality education should be accessible, industry-relevant, and directly aligned with career opportunities.
+                At GyaanPath Digital, our mission is to empower learners across India with the practical skills needed to thrive in today's competitive job market. We believe that quality education should be accessible, industry-relevant, and directly aligned with career opportunities.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 Through our comprehensive programs, we aim to bridge the gap between academic learning and industry expectations, ensuring our students are job-ready from day one.
@@ -113,7 +112,7 @@ export default function AboutUsPage() {
       <section className="py-20 bg-blue-900 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Accelerate Your Career?</h2>
-          <p className="text-blue-100 mb-8 text-lg">Join thousands of students who have transformed their lives through Future Skill programs.</p>
+          <p className="text-blue-100 mb-8 text-lg">Join thousands of students who have transformed their lives through GyaanPath Digital programs.</p>
           <a href="/#courses" className="bg-orange-500 hover:bg-orange-600 text-white rounded-md font-semibold inline-block transition-colors cursor-target overflow-hidden">
             <GlareHover className="px-8 py-4 flex items-center justify-center w-full h-full" glareSize={200}>
               Explore Our Courses <ArrowRight className="ml-2" size={20} />

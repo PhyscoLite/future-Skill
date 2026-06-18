@@ -20,7 +20,7 @@ export default function ContactUs() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
               {/* Call Us */}
-              <div className="flex items-center p-5 border border-gray-200 rounded-xl bg-gray-50 hover:bg-white hover:border-blue-500 hover:shadow-md transition-all text-left">
+              <a href="tel:+917974889250" className="flex items-center p-5 border border-gray-200 rounded-xl bg-gray-50 hover:bg-white hover:border-blue-500 hover:shadow-md transition-all text-left">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
                   <Phone className="text-blue-600" size={20} />
                 </div>
@@ -28,9 +28,9 @@ export default function ContactUs() {
                   <p className="text-xs text-gray-500 font-semibold mb-1">Call Us</p>
                   <p className="font-bold text-gray-900">+91 7974889250</p>
                 </div>
-              </div>
+              </a>
               {/* WhatsApp */}
-              <div className="flex items-center p-5 border border-gray-200 rounded-xl bg-gray-50 hover:bg-white hover:border-green-500 hover:shadow-md transition-all text-left">
+              <a href="https://wa.me/917974889250" target="_blank" rel="noopener noreferrer" className="flex items-center p-5 border border-gray-200 rounded-xl bg-gray-50 hover:bg-white hover:border-green-500 hover:shadow-md transition-all text-left">
                 <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
                   <MessageCircle className="text-green-600" size={24} />
                 </div>
@@ -38,17 +38,17 @@ export default function ContactUs() {
                   <p className="text-xs text-gray-500 font-semibold mb-1">WhatsApp</p>
                   <p className="font-bold text-gray-900">+91 7974889250</p>
                 </div>
-              </div>
+              </a>
               {/* Email */}
-              <div className="flex items-center p-5 border border-gray-200 rounded-xl bg-gray-50 hover:bg-white hover:border-blue-500 hover:shadow-md transition-all text-left">
+              <a href="mailto:info@gyaanpathdigital.in" className="flex items-center p-5 border border-gray-200 rounded-xl bg-gray-50 hover:bg-white hover:border-blue-500 hover:shadow-md transition-all text-left">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
                   <Mail className="text-blue-600" size={20} />
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 font-semibold mb-1">Email Us</p>
-                  <p className="font-bold text-gray-900 text-sm">tiwarirohit326@gmail.com</p>
+                  <p className="font-bold text-gray-900 text-[13px] sm:text-sm break-all">info@gyaanpathdigital.in</p>
                 </div>
-              </div>
+              </a>
               {/* Office */}
               <div className="flex items-center p-5 border border-gray-200 rounded-xl bg-gray-50 hover:bg-white hover:border-blue-500 hover:shadow-md transition-all text-left">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">

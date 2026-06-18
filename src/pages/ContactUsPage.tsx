@@ -1,15 +1,14 @@
+import { Helmet } from 'react-helmet-async';
 import ContactUs from '../components/ContactUs';
 import BlurText from '../components/BlurText';
-import Seo from '../components/Seo';
 
 export default function ContactUsPage() {
   return (
     <div className="bg-gray-50 flex-grow">
-      <Seo
-        title="Contact Us"
-        path="/contact"
-        description="Get in touch with Future Skill. We are here to help and answer any questions about our courses, enrollment and career guidance programs."
-      />
+      <Helmet>
+        <title>Contact Us | GyaanPath Digital</title>
+        <meta name="description" content="Get in touch with the GyaanPath Digital team. Ask questions about our programs, custom printing services, scaling options, and more." />
+      </Helmet>
       {/* Hero Section */}
       <section className="bg-blue-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
