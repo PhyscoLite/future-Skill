@@ -6,24 +6,29 @@ import EnrollmentModal from './components/EnrollmentModal';
 import GlareHover from './components/GlareHover';
 import SplashCursor from './components/SplashCursor';
 import ScrollToTop from './components/ScrollToTop';
+import { useSettings } from './context/SettingsContext';
 
 import HomePage from './pages/HomePage';
 import AboutUsPage from './pages/AboutUsPage';
 import ContactUsPage from './pages/ContactUsPage';
 import PrintersPage from './pages/PrintersPage';
 import CareerPage from './pages/CareerPage';
+import AdminPage from './pages/AdminPage';
 
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsAndConditionsPage from './pages/TermsAndConditionsPage';
 import RefundPolicyPage from './pages/RefundPolicyPage';
 
 export default function App() {
+  const { get, num } = useSettings();
   const [isEnrollmentOpen, setIsEnrollmentOpen] = useState(false);
 
-  const [enrollmentDetails, setEnrollmentDetails] = useState({ planName: 'GyaanPath Digital Career Development Program', price: 399, priceText: '₹399' });
+  const [enrollmentDetails, setEnrollmentDetails] = useState({ planName: '', price: 0, priceText: '' });
 
-  const openEnrollment = (planName = 'GyaanPath Digital Career Development Program', price = 399, priceText = '₹399') => {
-    setEnrollmentDetails({ planName, price, priceText });
+  const openEnrollment = (planName?: string, price?: number, priceText?: string) => {
+    const name = planName ?? get('plan_basic_name');
+    const amount = price ?? num('plan_basic_price');
+    setEnrollmentDetails({ planName: name, price: amount, priceText: priceText ?? `₹${amount}` });
     setIsEnrollmentOpen(true);
   };
 
@@ -45,6 +50,7 @@ export default function App() {
             <Route path="/refund-policy" element={<RefundPolicyPage />} />
             <Route path="/contact" element={<ContactUsPage />} />
             <Route path="/printers" element={<PrintersPage />} />
+            <Route path="/admin" element={<AdminPage />} />
           </Routes>
         </main>
         <Footer />
@@ -56,7 +62,7 @@ export default function App() {
 
         {/* Floating WhatsApp Button */}
         <a 
-          href="https://wa.me/917974889250?text=sir%2C%20i%20have%20some%20quires" 
+          href={`https://wa.me/${get('contact_phone_raw')}?text=sir%2C%20i%20have%20some%20quires`}
           target="_blank" 
           rel="noopener noreferrer" 
           className="fixed bottom-6 right-6 z-40 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 cursor-target overflow-hidden block"

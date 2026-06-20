@@ -3,11 +3,10 @@ import { motion } from 'motion/react';
 import BlurText from './BlurText';
 import GlareHover from './GlareHover';
 import GradientText from './GradientText';
+import { useSettings } from '../context/SettingsContext';
 
 export default function Hero({ onEnroll }: { onEnroll?: () => void }) {
-  const handleAnimationComplete = () => {
-    console.log('Animation completed!');
-  };
+  const { get } = useSettings();
 
   return (
     <section className="hero-bg pt-16 pb-20 overflow-hidden relative">
@@ -22,12 +21,12 @@ export default function Hero({ onEnroll }: { onEnroll?: () => void }) {
                 showBorder={false}
                 className="!m-0 !justify-start !block text-left"
               >
-                Learn Skills, Build Careers, Create Opportunities
+                {get('hero_title')}
               </GradientText>
             </h1>
             <BlurText
               as="p"
-              text="Join our Daily Live Interactive Program and upgrade your skills for a better career and life."
+              text={get('hero_subtitle')}
               delay={400}
               animateBy="words"
               direction="top"
